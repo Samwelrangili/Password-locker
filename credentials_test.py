@@ -3,7 +3,7 @@ class Credentials:
     Class that generates new instances of credentails.
     """
 
-    user_list = [] # Empty list that will hold users details
+    users_list = [] # Empty list that will hold users details
 
     def __init__(self,first_name,last_name,password):
 
