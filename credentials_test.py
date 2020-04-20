@@ -27,6 +27,38 @@ class TestUssers(unittest.TestCase):
         self.assertEqual(self.new_user.last_name,"Rangili")
         self.assertEqual(self.new_user.password,"Sam0758597216")
 
+    def test_save_user(self):
+        '''
+        test_save_user test case to test if the user object is saved into
+         the users list
+        '''
+        self.new_user.save_user() # saving the new user
+        self.assertEqual(len(User.users_list), 3)
+
+
+    def test_confirm_user(self):
+            '''
+            test_save_multiple_user to check if we can save multiple user
+            objects to our user_list
+            '''
+            self.new_user = User("Samwel", "Rangili", "Sam0758597216")
+            self.new_user.save_user()
+            user2 = User("Annitter", "Mitchelle", "xyz3980168")
+            user2.save_user()
+
+            for user in User.users_list:
+                if user.first_name == user2.first_name and user.password == user2.password:
+                    initial_user = user.first_name
+                    return initial_user
+
+            self.assertEqual(initial_user, User.confirm_user(user2.password, user2.first_name))
+
+            # setup and class creation up here
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            User.user_list = []
 
 if __name__ == '__main__':
     unittest.main()
