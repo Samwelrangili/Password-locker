@@ -71,7 +71,7 @@ class Credentials:
         return users_credentials_list 
 
     @classmethod
-    def findby_site_name(cls, site_name):
+    def find_by_site_name(cls, site_name):
         '''
         method that validate site name.
         '''
@@ -95,7 +95,7 @@ class Credentials:
         '''
         Class method that copies a credentials details after the credentials site_name has been entered
         '''
-        find_credential = Credentials.findby_site_name(site_name)
+        find_credential = Credentials.find_by_site_name(site_name)
         return pyperclip.copy(find_credential.password)
 
     def delete_credential(self):
@@ -104,16 +104,16 @@ class Credentials:
         '''
         Credentials.credentials_list.remove(self)
 
-    def password_generater(self):
+    def password_generator(self):
             '''
             Function that generate user random password incase user doesnt want to create their own password.
             '''
-            randompass = "abcdefghifghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyz1234567890@#!$%^&*"
+            chars = "abcdefghijklmnopqrstuvwxyziABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890^?!?$%&/()=?`'+#*'~';:_,.-<>|"
             password =""
 
-            length = int(input("[#]Insert password Length: "))
-            while len(password) != length:
-                password = password + random.choice(randompass)
+            length = int(input("Insert password Length: "))
+            while len(password)!= length:
+                password = password + random.choice(chars)
                 if len(password) ==length:
-                    print("password: #@ " %password)
+                    print("password:  " %password)
             return password

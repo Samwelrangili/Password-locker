@@ -112,14 +112,14 @@ class TestCredentials(unittest.TestCase):
         '''
         Credentials.credentials_list = []
 
-    def test_findby_site_name(self):
+    def test_find_by_site_name(self):
         '''
         Test case to test if we can search credential by site_name and return the correct credential.
         '''
         self.new_credential.save_credential()
         LinkedIn = Credentials("Kevin","LinkedIn",'KevinShorry',"shorry@254")
         LinkedIn.save_credential()
-        credential_exists = Credentials.findby_site_name("LinkedIn")
+        credential_exists = Credentials.find_by_site_name("LinkedIn")
         self.assertEqual(credential_exists, LinkedIn)
 
     def test_copy_credential(self):
@@ -159,11 +159,11 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.delete_credential()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
-    def tearDown(self):
-        '''
-        tearDown method that clears the users credentials list after each test case.
-        '''
-        Credentials.credentials_list = []
+    # def tearDown(self):
+    #     '''
+    #     tearDown method that clears the users credentials list after each test case.
+    #     '''
+    #     Credentials.credentials_list = []
 
 
 if __name__ == '__main__':
