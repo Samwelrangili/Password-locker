@@ -122,7 +122,20 @@ class TestCredentials(unittest.TestCase):
         credential_exists = Credentials.findby_site_name("LinkedIn")
         self.assertEqual(credential_exists, LinkedIn)
 
-
+    def test_copy_credential(self):
+        '''
+        method to test if the copied credential is correct.
+        '''
+        self.new_credential.save_credential()
+        Facebook = Credentials("Samwel","Facebook","SamwelRangili","Sam3980168")
+        Facebook.save_credential()
+        find_credential = None
+        for credential in Credentials.users_credentials_list:
+            find_credential = Credentials.findby_site_name(credential.site_name)
+            return pyperclip.copy(find_credential.password)
+        Credentials.copy_credential(self.new_credential.site_name)
+        self.assertEqual("Sam3980168", pyperclip.paste())
+        print(pyperclip.paste())
 
 
 if __name__ == '__main__':
