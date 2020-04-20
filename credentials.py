@@ -1,5 +1,6 @@
 import string
 import pyperclip
+import random
 class User:
     """
     Class that generates new instances of credentails.
@@ -102,3 +103,17 @@ class Credentials:
         Method that deletes saved credential from credential_list
         '''
         Credentials.credentials_list.remove(self)
+
+    def password_generater(self):
+            '''
+            Function that generate user random password incase user doesnt want to create their own password.
+            '''
+            randompass = "abcdefghifghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyz1234567890@#!$%^&*"
+            password =""
+
+            length = int(input("[#]Insert password Length: "))
+            while len(password) != length:
+                password = password + random.choice(randompass)
+                if len(password) ==length:
+                    print("password: #@ " %password)
+            return password

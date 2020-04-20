@@ -159,6 +159,12 @@ class TestCredentials(unittest.TestCase):
         self.new_credential.delete_credential()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
+    def tearDown(self):
+        '''
+        tearDown method that clears the users credentials list after each test case.
+        '''
+        Credentials.credentials_list = []
+
 
 if __name__ == '__main__':
     unittest.main()
