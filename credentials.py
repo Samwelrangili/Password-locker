@@ -1,3 +1,5 @@
+import string
+import pyperclip
 class User:
     """
     Class that generates new instances of credentails.
@@ -54,4 +56,24 @@ class Credentials:
         '''
         method that save credentials in the credential_list
         '''
-        Credentials.credentials_list.append(self)    
+        Credentials.credentials_list.append(self) 
+
+    @classmethod
+    def display_credential(cls, user_name):
+        '''
+        Class method to show the list of credentials saved
+        '''
+        users_credentials_list = []
+        for credential in cls.credentials_list:
+            if credential.user_name == user_name:
+                users_credentials_list.append(credential)
+        return users_credentials_list 
+
+    @classmethod
+    def findby_site_name(cls, site_name):
+        '''
+        method that validate site name.
+        '''
+        for credential in cls.credentials_list:
+            if credential.site_name == site_name:
+                return credential  

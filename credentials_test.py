@@ -1,4 +1,5 @@
 import unittest # Importing the unittest module
+import pyperclip
 from credentials import User, Credentials# Importing the contact class
 
 class TestUssers(unittest.TestCase):
@@ -87,12 +88,42 @@ class TestCredentials(unittest.TestCase):
 
     def test_save_credentials(self):
         '''
-        Test case to check if we can save credentials to the credentials list.
+        test_save method that check if we can we can save credentials in credential_list.
         '''
         self.new_credential.save_credential()
         Email = Credentials("Festus", "Email", "festusayosi", "Ayosi254")
         Email.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
+
+    def test_display_credentials(self):
+        '''
+        test_display method that check of our credentials are displying.
+        '''
+        self.new_credential.save_credential()
+        Email = Credentials("Festus", "Email", "festusayosi", "ayosi254")
+        Email.save_credential()
+        LinkedIn = Credentials("Kevin", "LinkedIn", "KevinShorry", "shorry@254")
+        LinkedIn.save_credential()
+        self.assertEqual(len(Credentials.display_credential(Email.user_name)), 1)
+
+    def tearDown(self):
+        '''
+        tearDown method that clears the users credentials list after each test case.
+        '''
+        Credentials.credentials_list = []
+
+    def test_findby_site_name(self):
+        '''
+        Test case to test if we can search credential by site_name and return the correct credential.
+        '''
+        self.new_credential.save_credential()
+        LinkedIn = Credentials("Kevin","LinkedIn",'KevinShorry',"shorry@254")
+        LinkedIn.save_credential()
+        credential_exists = Credentials.findby_site_name("LinkedIn")
+        self.assertEqual(credential_exists, LinkedIn)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
