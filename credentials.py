@@ -31,3 +31,27 @@ class User:
             if (user.first_name == user.first_name and user.password == password):
                 initial_user = user.first_name
         return initial_user
+
+class Credentials:
+    '''
+    Class that generates instances of account credentials, and save information
+    '''
+
+    credentials_list = []
+    users_credentials_list = []
+
+    def __init__(self, user_name, site_name, account_name, password):
+        '''
+        __init__ method that define properties of inserted objects
+        '''
+
+        self.user_name = user_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password = password
+
+    def save_credential(self):
+        '''
+        method that save credentials in the credential_list
+        '''
+        Credentials.credentials_list.append(self)    

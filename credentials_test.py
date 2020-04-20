@@ -1,5 +1,5 @@
 import unittest # Importing the unittest module
-from credentials import User# Importing the contact class
+from credentials import User, Credentials# Importing the contact class
 
 class TestUssers(unittest.TestCase):
 
@@ -59,6 +59,32 @@ class TestUssers(unittest.TestCase):
             tearDown method that does clean up after each test case has run.
             '''
             User.user_list = []
+
+class TestCredentials(unittest.TestCase):
+
+    '''
+    Test class that defines test cases for the Credentials class behaviours.
+
+    Args:
+    unittest.TestCase: TestCase class that helps in creating test cases
+    '''
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_credential = Credentials("Samwel", "Facebook", "SamwelRangili", "Sam3980168") # create credential object
+
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
+        self.assertEqual(self.new_credential.user_name,"Samwel")
+        self.assertEqual(self.new_credential.site_name,"Facebook")
+        self.assertEqual(self.new_credential.account_name,"SamwelRangili")
+        self.assertEqual(self.new_credential.password, "Sam3980168")
+
 
 if __name__ == '__main__':
     unittest.main()
