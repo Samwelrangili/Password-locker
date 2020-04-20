@@ -98,9 +98,9 @@ def main():
             print("."*120)
             print('\n')
             print("To create a new account:")
-            first_name = input("Kindly Enter your first name").strip()
-            last_name = input("Kindly Enter your last name").strip()
-            password = input("Kindly Enter password").strip()
+            first_name = input("Kindly Enter your first name ").strip()
+            last_name = input("Kindly Enter your last name ").strip()
+            password = input("Kindly Enter password ").strip()
             save_user(create_user(first_name, last_name, password))
             print("\n")
             print(f"Account for {first_name} {last_name}, password {password} has been successfully created")
@@ -109,8 +109,8 @@ def main():
             print("."*120)
             print('\n')
             print("Enter your valid account details to log in.")
-            user_name = input("Kindly Enter your first name").strip()
-            password = str(input("Kindly Enter your password - "))
+            user_name = input("Kindly Enter your first name ").strip()
+            password = str(input("Kindly Enter your password "))
             user_exists = verify_user(user_name, password)
             if user_exists == user_name:
                 print('\n')
@@ -128,8 +128,8 @@ def main():
                     elif short_code == 'CCR':
                         print('\n')
                         print("Enter your valid credential details:")
-                        site_name = input("Enter the site name").strip()
-                        account_name = input("Enter your account username").strip()
+                        site_name = input("Enter the site name ").strip()
+                        account_name = input("Enter your account username ").strip()
 
                         while True:
                             print('\n')
@@ -167,7 +167,7 @@ def main():
 
 
                     elif short_code == 'FCR':
-                        search_site = input("Enter the site name to search: \n")
+                        search_site = input("Enter the site name to search:  \n")
                         if check_existing_credentials(search_site):
                             result = find_by_site(search_site)
                             print(f"Result: Site: {result.site_name} - Account name: {result.account_name} - Password: {result.password}")
@@ -176,14 +176,14 @@ def main():
                     
                     elif short_code == "CP":
                         print('\n')
-                        chosen_site = input("Enter site name for credential you want to copy:")
+                        chosen_site = input("Enter site name for credential you want to copy: ")
                         copy_credential(chosen_site)
                         print('\n')
                     elif short_code == "DEL":
                         print('\n')
-                        print("Enter site of credential to be deleted.")
+                        print("Enter site of credential to be deleted. ")
                         print('\n')
-                        answer = input("Enter Your choice:")
+                        answer = input("Enter Your choice: ")
 
                         if check_existing_credentials(answer):
                             answer = find_by_site(answer)
