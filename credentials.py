@@ -76,7 +76,18 @@ class Credentials:
         '''
         for credential in cls.credentials_list:
             if credential.site_name == site_name:
-                return credential  
+                return credential 
+
+                
+    @classmethod
+    def credential_exist(cls, site_name):
+        '''
+        method that checks if a credential exists in credential_list.
+        '''
+        for credential in cls.credentials_list:
+            if credential.site_name == site_name:
+                return True
+        return False 
 
     @classmethod
     def copy_credential(cls, site_name):
@@ -85,3 +96,9 @@ class Credentials:
         '''
         find_credential = Credentials.findby_site_name(site_name)
         return pyperclip.copy(find_credential.password)
+
+    def delete_credential(self):
+        '''
+        Method that deletes saved credential from credential_list
+        '''
+        Credentials.credentials_list.remove(self)

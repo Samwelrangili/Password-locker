@@ -137,6 +137,28 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual("Sam3980168", pyperclip.paste())
         print(pyperclip.paste())
 
+    def test_credential_exist(self):
+        '''
+        method that check if the credential exists in the credential_list.
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credentials("Samwel","Facebook","SamwelRangili","Sam3980168")
+        test_credential.save_credential()
+
+        credential_exist = Credentials.credential_exist("Facebook")
+        self.assertTrue(credential_exist)
+
+    def test_delete_credential(self):
+        '''
+        method that test if we can delete saved credential from credential_list.
+        '''
+        self.new_credential.save_credential()
+        new_credential = Credentials("Kevin","LinkedIn","KevinShorry","shorry@254")
+        new_credential.save_credential()
+
+        self.new_credential.delete_credential()
+        self.assertEqual(len(Credentials.credentials_list), 1)
+
 
 if __name__ == '__main__':
     unittest.main()
