@@ -29,3 +29,9 @@
 * CP- Copy credential
 * DEL-Delete credential
 * QT- Quite
+
+# Installation Requirement
+* Python3.6
+* pip
+* pyperclip
+* 8gb RAM
