@@ -82,7 +82,7 @@ def main():
     print('\n')
 
     print("")
-    print("Genius, Welcome to Password Locker.") 
+    print("Genius, Welcome to Password-Locker.") 
     while True:
         print("-"*120)
         print('\n')
