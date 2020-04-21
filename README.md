@@ -35,3 +35,12 @@
 * pip
 * pyperclip
 * 8gb RAM
+
+# Clonining
+* $ git clone https://github.com/Samwelrangili/Password-locker.git
+* $ cd Password-locker
+
+# Running Application
+* Application can be run in terminal by;
+    * $ chmod +x password_locker.py
+    * $ ./password_locker.py
